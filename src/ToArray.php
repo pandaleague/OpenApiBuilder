@@ -18,7 +18,7 @@ trait ToArray
             $value = $property->getValue($this);
 
             if ($value instanceof Schema) {
-                $data[$property->getName()] = $value->getSchema();
+                $data[$property->getName()] = $value->schema();
             } elseif(is_object($value)) {
                 if ($value instanceof Arrayable) {
                     $value = $value->toArray();
@@ -28,7 +28,7 @@ trait ToArray
             elseif (is_array($value)) {
                 foreach ($value as $key => $v) {
                     if ($v instanceof Schema) {
-                        $data[$property->getName()][$key] = $v->getSchema();
+                        $data[$property->getName()][$key] = $v->schema();
                     } elseif(is_object($v)) {
                         if ($v instanceof Arrayable) {
                             $v = $v->toArray();
