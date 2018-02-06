@@ -1,0 +1,22 @@
+{
+    "name": "pandaleague/openapibuilder",
+    "authors": [
+      {
+        "name": "IAmEd",
+      }
+    ],
+    "require": {
+        "illuminate/support": "^5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "PandaLeague\\OpenApiBuilder\\": "src/"
+        }
+    },
+    "repositories": [
+      {
+        "type": "vcs",
+        "url": "https://github.com/pandaleague/OpenApiBuilder"
+      }
+    ]
+}
