@@ -40,6 +40,7 @@ class OpenApi implements Arrayable
             }
         }
         $this->paths = $paths;
+        $this->components = new Components;
     }
 
     /**
@@ -62,11 +63,19 @@ class OpenApi implements Arrayable
      * @param Components $components
      * @return OpenApi
      */
-    public function componenets(Components $components) : OpenApi
+    public function components(Components $components) : OpenApi
     {
         $this->components = $components;
 
         return $this;
+    }
+
+    /**
+     * @return Components
+     */
+    public function getComponents() : Components
+    {
+        return $this->components;
     }
 
     /**
@@ -111,6 +120,19 @@ class OpenApi implements Arrayable
         $this->externalDocumentation = $externalDocumentation;
 
         return $this;
+    }
+
+    /**
+     * @param string $pathName
+     * @param Path $path
+     */
+    public function path(string $pathName, Path $path)
+    {
+        if (strpos($pathName, '/') !== 0) {
+            throw new \InvalidArgumentException('{$path} must start with a /');
+        }
+
+        $this->paths[$pathName] = $path;
     }
 }
 
