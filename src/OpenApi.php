@@ -125,14 +125,17 @@ class OpenApi implements Arrayable
     /**
      * @param string $pathName
      * @param Path $path
+     * @return OpenApi
      */
-    public function path(string $pathName, Path $path)
+    public function path(string $pathName, Path $path) :  OpenApi
     {
         if (strpos($pathName, '/') !== 0) {
             throw new \InvalidArgumentException('{$path} must start with a /');
         }
 
         $this->paths[$pathName] = $path;
+
+        return $this;
     }
 }
 
