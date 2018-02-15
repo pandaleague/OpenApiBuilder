@@ -117,10 +117,10 @@ class Operation implements Arrayable
      * HTTP 1.1 specification RFC7231 has explicitly defined semantics for request bodies. In other cases where the
      * HTTP spec is vague, requestBody SHALL be ignored by consumers.
      *
-     * @param RequestBody $body
+     * @param RequestBody|Schema $body
      * @return Operation
      */
-    public function requestBody(RequestBody $body) : Operation
+    public function requestBody($body) : Operation
     {
         $this->requestBody = $body;
         return $this;
