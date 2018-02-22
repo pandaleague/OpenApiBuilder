@@ -15,7 +15,6 @@ class MediaType implements Arrayable
     use ToArray;
 
     protected $schema;
-    protected $example;
     protected $examples = [];
     protected $encoding = [];
 
@@ -32,31 +31,17 @@ class MediaType implements Arrayable
     }
 
     /**
-     * Example of the media type. The example object SHOULD be in the correct format as specified by the media type.
-     * The example field is mutually exclusive of the examples field. Furthermore, if referencing a schema which
-     * contains an example, the example value SHALL override the example provided by the schema.
-     *
-     * @param $example
-     * @return MediaType
-     */
-    public function examples($example) : MediaType
-    {
-        $this->example = $example;
-        return $this;
-    }
-
-    /**
      * Examples of the media type. Each example object SHOULD match the media type and specified schema if present. The
      * examples field is mutually exclusive of the example field. Furthermore, if referencing a schema which contains
      * an example, the examples value SHALL override the example provided by the schema.
      *
-     * @param string $mediaType
+     * @param string $name
      * @param Example $example
      * @return MediaType
      */
-    public function example(string $mediaType, Example $example) : MediaType
+    public function example(string $name, Example $example) : MediaType
     {
-        $this->example[$mediaType] = $example;
+        $this->examples[$name] = $example;
         return $this;
     }
 

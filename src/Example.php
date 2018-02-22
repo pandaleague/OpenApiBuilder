@@ -42,12 +42,17 @@ class Example implements Arrayable
      * of media types that cannot naturally represented in JSON or YAML, use a string value to contain the example,
      * escaping where necessary.
      *
+     * @param string $name
      * @param $value
      * @return Example
      */
-    public function value($value) : Example
+    public function value(string $name, $value) : Example
     {
-        $this->value = $value;
+        if (!is_array($this->value)) {
+            $this->value = [];
+        }
+
+        $this->value[$name] = $value;
         return $this;
     }
 
