@@ -164,11 +164,11 @@ class Operation implements Arrayable
      * @param Security $security
      * @return Operation
      */
-//    public function addSecurity(Security $security) : Operation
-//    {
-//        $this->security[] = $security;
-//        return $this;
-//    }
+    public function addSecurity(Security $security) : Operation
+    {
+        $this->security[] = $security;
+        return $this;
+    }
 
     /**
      * An alternative server array to service this operation. If an alternative server object is specified at the Path
