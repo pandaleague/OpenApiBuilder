@@ -15,9 +15,7 @@ class Logo implements Arrayable
     use ToArray;
 
     protected $url;
-
     protected $backgroundColor;
-
     protected $altText;
 
     /**

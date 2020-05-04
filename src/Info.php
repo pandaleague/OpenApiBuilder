@@ -97,7 +97,7 @@ class Info implements Arrayable
     }
 
     /**
-     * The logo information for the exposed API.
+     * The logo for the exposed API.
      *
      * @param Logo $logo
      * @return Info
