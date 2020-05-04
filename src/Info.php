@@ -91,7 +91,7 @@ class Info implements Arrayable
      */
     public function contact(Contact $contact) : Info
     {
-        $this->contact = $contact->toArray();
+        $this->contact = $contact;
 
         return $this;
     }
