@@ -20,29 +20,29 @@ trait ToArray
             $value = $property->getValue($this);
 
             if ($value instanceof Schema) {
-                $data[$property->getName()] = $value->schema();
+                $data[$name] = $value->schema();
             } elseif(is_object($value)) {
                 if ($value instanceof Arrayable) {
                     $value = $value->toArray();
-                    $data[$property->getName()] = $value;
+                    $data[$name] = $value;
                 }
             }
             elseif (is_array($value)) {
                 foreach ($value as $key => $v) {
                     if ($v instanceof Schema) {
-                        $data[$property->getName()][$key] = $v->schema();
+                        $data[$name][$key] = $v->schema();
                     } elseif(is_object($v)) {
                         if ($v instanceof Arrayable) {
                             $v = $v->toArray();
-                            $data[$property->getName()][$key] = $v;
+                            $data[$name][$key] = $v;
                         }
                     } elseif (!is_array($v)) {
-                        $data[$property->getName()][$key] = $v;
+                        $data[$name][$key] = $v;
                     }
                 }
             }
             elseif (!is_null($value)) {
-                $data[$property->getName()] = $value;
+                $data[$name] = $value;
             }
         }
 
