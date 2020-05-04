@@ -14,6 +14,8 @@ trait ToArray
 
         foreach ($properties as $property)
         {
+            $name = str_replace('_', '-', $property->getName());
+
             $property->setAccessible(true);
             $value = $property->getValue($this);
 

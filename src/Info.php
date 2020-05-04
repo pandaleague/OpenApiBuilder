@@ -25,6 +25,11 @@ use Illuminate\Contracts\Support\Arrayable;
  *      "name": "Apache 2.0",
  *      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
  *  },
+ *  "x-logo": {
+ *      "url": "http://www.example.com/assets/img/logo.png",
+ *      "backgroundColor": "#000000",
+ *      "altText": "Examplef"
+ *  },
  *  "version": "1.0.1"
  * }
  */
@@ -37,6 +42,7 @@ class Info implements Arrayable
     protected $description;
     protected $termsOfService;
     protected $contact;
+    protected $x_logo;
 
     /**
      * Info constructor.
@@ -85,7 +91,20 @@ class Info implements Arrayable
      */
     public function contact(Contact $contact) : Info
     {
-        $this->contact = $contact;
+        $this->contact = $contact->toArray();
+
+        return $this;
+    }
+
+    /**
+     * The logo information for the exposed API.
+     *
+     * @param Logo $logo
+     * @return Info
+     */
+    public function logo(Logo $logo) : Info
+    {
+        $this->x_logo = $logo;
 
         return $this;
     }
