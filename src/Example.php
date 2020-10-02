@@ -57,6 +57,16 @@ class Example implements Arrayable
     }
 
     /**
+     * @param Schema $value
+     * @return $this
+     */
+    public function setValue(Schema $value): Example
+    {
+        $this->value = $value;
+        return $this;
+    }
+
+    /**
      * A URL that points to the literal example. This provides the capability to reference examples that cannot easily
      * be included in JSON or YAML documents. The value field and externalValue field are mutually exclusive.
      *
