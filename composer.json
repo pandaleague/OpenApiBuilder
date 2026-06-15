@@ -6,12 +6,24 @@
       }
     ],
     "require": {
-        "illuminate/support": "^5.5"
+        "php": "^8.3",
+        "illuminate/contracts": "^11.0 || ^12.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0"
     },
     "autoload": {
         "psr-4": {
             "PandaLeague\\OpenApiBuilder\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PandaLeague\\OpenApiBuilder\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
     },
     "repositories": [
       {

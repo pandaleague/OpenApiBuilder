@@ -16,7 +16,6 @@ trait ToArray
         {
             $name = str_replace('_', '-', $property->getName());
 
-            $property->setAccessible(true);
             $value = $property->getValue($this);
 
             if ($value instanceof Schema) {
