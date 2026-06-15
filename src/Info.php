@@ -42,6 +42,7 @@ class Info implements Arrayable
     protected $description;
     protected $termsOfService;
     protected $contact;
+    protected $license;
     protected $x_logo;
 
     /**
